@@ -1,5 +1,5 @@
 <?php //tag de abertura
 
-echo "<strong>Hello World!</strong>";
+echo "<strong>Olá mundão!</strong>";
 
 ?>
