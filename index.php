@@ -3,4 +3,5 @@
 echo "<strong>Olá mundão!</strong>";
 echo "<strong>456!</strong>";
 
+echo "<strong>Olá code!</strong>";
 ?>
