@@ -1,7 +1,9 @@
 <?php //tag de abertura
 
-echo "<strong>Olá mundão!</strong>";
-echo "<strong>456!</strong>";
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 echo "<strong>Olá code!</strong>";
+echo "acesse operadores ou variaveis ou strings ou include"
+
 ?>
