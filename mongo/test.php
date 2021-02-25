@@ -1,10 +1,40 @@
 <?php
-  // connect to mongodb
-  $m = new MongoClient("localvictor");
 
-  echo "Connection to database successfully";
-  // select a database
-  $db = $m->dbphp7;
+require_once '../vendor/autoload.php';
 
-  echo "Database examplesdb selected";
+try {
+  $authMongoArray = ['username' => 'admin', 'password' => 'admin', 'authSource' => 'admin'];
+$mongoConnect = "mongodb://localhost:27017";
+$manager = new MongoDB\Driver\Manager($mongoConnect,$authMongoArray);
+
+$queryDriver = new MongoDB\Driver\Query([], []);
+$cursor = $manager->executeQuery('dbphp7.collectionphp', $queryDriver);
+
+$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
+
+foreach ($cursor as $doc) {
+    var_dump($doc);
+}
+} catch (\Throwable $th) {
+  var_dump($th);
+}
+
+/*
+$cursor = queryMongo('sms','application', [
+    'frequency' => [
+        '$exists' => true,
+        '$gte' => 100,
+        '$lte' => 400,
+    ]
+], [
+    'limit' => 3,
+    'projection' => [
+        'frequency' => true
+    ]
+]);
+
+foreach ($cursor as $doc) {
+  pr($doc);
+}
+*/
 ?>
